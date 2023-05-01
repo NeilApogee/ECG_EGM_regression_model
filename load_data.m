@@ -8,13 +8,7 @@ function [EGML, EGMR, BSM, ECG_finder] = load_data(BSM_dir, EGM_LEFT_dir, EGM_RI
     BSM = bsm(:, 1:128) - WCG(:,1); % Subtracting the Ground value from the 128 Body Surface Data
     clear bsm;
     
-    % I Channel
+    % II Channel
     ECG_finder = BSM(:, bsm_node_1) - BSM(:, bsm_node_2);
 
 end
-
-% bsm = 'BSM_D_002_PRE_alligned.mat';
-% 
-% la = 'LA_D_002_PRE_alligned_VIR.mat';
-% 
-% ra = 'RA_D_002_PRE_alligned_VIR.mat';
