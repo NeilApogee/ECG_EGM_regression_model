@@ -19,23 +19,10 @@ function [mean_, rsquared, standard_deviation, model, y_test, y_pred] = regressi
     x_test = x(cv.test,:);
     y_test = y(cv.test,:);
     
-    % Train the SVR model
-    % model = fitrsvm(x_train,y_train,'KernelFunction','rbf','Standardize',true);
-    
-    % Train the linear regression model
-    % model = fitrlinear(x_train,y_train,'Learner','leastsquares','Regularization','ridge','Lambda',0.01);
-    
-    % Train the linear regression model
-    % model = fitlm(x_train, y_train);
-    
     % Train the ensemble model
     t = templateTree('MaxNumSplits',5);
     model = fitrensemble(x_train, y_train,'Method','LSBoost',...
         'NumLearningCycles',100,'Learners',t);
-    
-    % Train the neural network model
-    % hiddenLayerSize = 10;
-    % model = fitrnet(x_train, y_train,'Standardize',true,'StandardizeTarget',true,'HLayerSize',hiddenLayerSize);
     
     % Predict on the test data
     y_pred = predict(model,x_test);
@@ -62,7 +49,6 @@ function [mean_, rsquared, standard_deviation, model, y_test, y_pred] = regressi
     end
 
     if play_sound >= 1
-        % Play sound
         fs = 44100;  % Sampling frequency
         duration = 2;  % Duration of the sound in seconds
         f0 = 440;  % Frequency of the sine wave in Hz
