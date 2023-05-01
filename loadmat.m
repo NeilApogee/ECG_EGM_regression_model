@@ -48,4 +48,3 @@ fclose(f);
 
 M = M';
 extraresult = char(extra');
-
