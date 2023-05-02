@@ -4,8 +4,8 @@ function [mean_, rsquared, standard_deviation, model, y_test, y_pred] = regressi
     [EGML, EGMR, ~, ECG_finder] = load_data(BSM_dir, EGM_LEFT_dir, EGM_RIGHT_dir, bsm_node_1, bsm_node_2);
     
     % Split the data into predictors (X) and response (y)
-    x = [EGML EGMR]; % [EGMS_left_2 EGMS_right_2];
-    y = ECG_finder; % ECGS_2(:, 30) - ECGS_2(:, 33);
+    x = [EGML EGMR];
+    y = ECG_finder;
     
     % Set the proportion of the data to use for testing
     test_proportion = 0.2;
